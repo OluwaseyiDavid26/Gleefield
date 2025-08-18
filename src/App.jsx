@@ -5,6 +5,9 @@ import CoreValues from "./components/CoreValues";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Vision from "./components/Vision";
+import Services from "./components/Services";
+import WhatSetsUsApart from "./components/WhatSetsUsApart";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -19,7 +22,10 @@ function App() {
               <About />
               <CoreValues />
               <Vision />
+              <Services />
               <Contact />
+              <WhatSetsUsApart />
+              <Footer />
             </>
           }
         />

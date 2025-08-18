@@ -9,11 +9,12 @@ function Hero() {
         {/* Left Side - Text */}
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight text-green-700">
-            Gleefield Global Services
+            Guarding Your Growth with Clarity and Direction
           </h1>
           <p className="mt-4 text-gray-600 text-lg">
-            We provide top-notch solutions to drive innovation, improve
-            efficiency, and deliver exceptional value for our clients.
+            We are more than a consulting firm, we are your strategic growth
+            partner. We combine visionary thinking with actionable strategy and
+            hands-on execution to help businesses thrive.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start">
             <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition">

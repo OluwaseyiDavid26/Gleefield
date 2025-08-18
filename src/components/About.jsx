@@ -8,17 +8,20 @@ const About = () => {
         {/* LEFT SIDE: TEXT */}
         <div className="flex-1 text-white">
           <h3 className="uppercase font-semibold text-sm tracking-widest mb-2">
-            Azure
+            About
           </h3>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
-            Empowering Businesses with Microsoft Azure Cloud Solutions
+            Gleefield Global Services Limited is a strategy-led consulting firm
+            that provides end-to-end consulting and business management services
+            to organizations navigating a rapidly changing world.
           </h2>
           <p className="text-base leading-relaxed">
-            We help organizations leverage the power of Microsoft Azure to
-            innovate, scale, and operate efficiently in the cloud. From
-            infrastructure migration to AI integration, our Azure solutions are
-            designed to meet your unique business needs while ensuring security,
-            cost optimization, and performance excellence.
+            We are dedicated to helping businesses grow smarter, operate better,
+            and lead with clarity. With a deep understanding of market shifts,
+            organizational needs, and global business trends, we work alongside
+            clients to solve real problems, unlock new value, and build
+            resilient systems. With every engagement, we bring global insight,
+            local relevance, and a deep commitment to excellence.
           </p>
         </div>
 
