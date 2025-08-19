@@ -3,51 +3,54 @@ import { Sparkles, Star, ShieldCheck, Layers } from "lucide-react";
 
 const features = [
   {
-    icon: <Sparkles className="w-6 h-6 text-green-600" />,
+    icon: Sparkles,
     title: "Business Intelligence",
   },
   {
-    icon: <Star className="w-6 h-6 text-green-600" />,
+    icon: Star,
     title: "Personalized Support",
   },
   {
-    icon: <ShieldCheck className="w-6 h-6 text-green-600" />,
+    icon: ShieldCheck,
     title: "Customized Training Support",
   },
   {
-    icon: <Layers className="w-6 h-6 text-green-600" />,
+    icon: Layers,
     title: "Integrated Solutions",
   },
 ];
 
 function WhatSetsUsApart() {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-5xl mx-auto text-center px-6">
+    <section className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto text-center px-6">
         {/* Heading */}
-        <h2 className="text-green-800 font-bold uppercase text-sm mb-3">
+        <h2 className="text-green-700 font-bold uppercase tracking-wide text-3xl mb-3">
           What Sets Us Apart
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
+        <p className="text-gray-700 max-w-2xl mx-auto mb-16 text-lg leading-relaxed">
           Let’s turn ambition into action. Our services are designed to help
           businesses like yours grow smarter, move faster, and lead boldly.
         </p>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-3 border-b border-gray-200 pb-4"
-            >
-              <div className="flex-shrink-0 bg-green-100 p-2 rounded-lg">
-                {feature.icon}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <div key={index} className="flex items-center gap-5">
+                {/* Icon Circle */}
+                <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-full bg-green-100">
+                  <Icon className="w-7 h-7 text-green-700" />
+                </div>
+
+                {/* Title */}
+                <h3 className="font-semibold text-gray-900 text-lg">
+                  {feature.title}
+                </h3>
               </div>
-              <h3 className="font-semibold text-black text-lg">
-                {feature.title}
-              </h3>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

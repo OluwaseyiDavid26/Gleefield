@@ -8,6 +8,8 @@ import Vision from "./components/Vision";
 import Services from "./components/Services";
 import WhatSetsUsApart from "./components/WhatSetsUsApart";
 import Footer from "./components/Footer";
+import Testimonial from "./components/Testimonial";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -21,10 +23,12 @@ function App() {
               <Hero />
               <About />
               <CoreValues />
-              <Vision />
               <Services />
-              <Contact />
+              <Vision />
               <WhatSetsUsApart />
+              <Testimonial />
+              <Contact />
+              <ScrollToTop />
               <Footer />
             </>
           }

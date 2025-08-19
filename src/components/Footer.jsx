@@ -1,12 +1,7 @@
 import React from "react";
+import { FaInstagram, FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import logo from "../assets/Logo-Name-White-1.png"; // your logo
-import instagramIcon from "../assets/icons8-instagram-logo-50.png"; // Instagram icon
-import linkedinIcon from "../assets/icons8-linkedin-50.png"; // LinkedIn icon
-import facebookIcon from "../assets/icons8-facebook-logo-50.png"; // Facebook icon
-import twitterIcon from "../assets/icons8-twitter-bird-50.png"; // Twitter icon
-import locationIcon from "../assets/locatio-icon.png"; // fixed typo
-import emailIcon from "../assets/email-icon.png";
-import phoneIcon from "../assets/phone-icon.jpg";
 
 const Footer = () => {
   return (
@@ -24,45 +19,33 @@ const Footer = () => {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-gray-200"
             >
-              <img
-                src={instagramIcon}
-                alt="Instagram"
-                className="w-6 h-6 hover:opacity-80"
-              />
+              <FaInstagram size={22} />
             </a>
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-gray-200"
             >
-              <img
-                src={linkedinIcon}
-                alt="LinkedIn"
-                className="w-6 h-6 hover:opacity-80"
-              />
+              <FaLinkedin size={22} />
             </a>
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-gray-200"
             >
-              <img
-                src={facebookIcon}
-                alt="Facebook"
-                className="w-6 h-6 hover:opacity-80"
-              />
+              <FaFacebook size={22} />
             </a>
             <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-gray-200"
             >
-              <img
-                src={twitterIcon}
-                alt="Twitter"
-                className="w-6 h-6 hover:opacity-80"
-              />
+              <FaTwitter size={22} />
             </a>
           </div>
         </div>
@@ -84,16 +67,23 @@ const Footer = () => {
         <div>
           <h3 className="font-bold mb-4">CONTACT US</h3>
           <div className="flex items-center space-x-3 mb-3">
-            <img src={locationIcon} alt="Location" className="w-5 h-5" />
+            <FaMapMarkerAlt className="text-white w-5 h-5" />
             <span className="text-sm">Lagos, Nigeria</span>
           </div>
           <div className="flex items-center space-x-3 mb-3">
-            <img src={emailIcon} alt="Email" className="w-5 h-5" />
-            <span className="text-sm">info@gleefield.com</span>
+            <FaEnvelope className="text-white w-5 h-5" />
+            <a
+              href="mailto:info@gleefield.com"
+              className="text-sm hover:underline"
+            >
+              info@gleefield.com
+            </a>
           </div>
           <div className="flex items-center space-x-3">
-            <img src={phoneIcon} alt="Phone" className="w-5 h-5" />
-            <span className="text-sm">+2349136450244</span>
+            <FaPhoneAlt className="text-white w-5 h-5" />
+            <a href="tel:+2349136450244" className="text-sm hover:underline">
+              +2349136450244
+            </a>
           </div>
         </div>
       </div>

@@ -11,16 +11,16 @@ function Hero() {
       <div className="w-full flex flex-col-reverse md:flex-row items-center gap-10 px-6 md:px-12 lg:px-20">
         {/* Left Side - Text */}
         <div className="flex-1 text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-green-700">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-[#003B28]">
             Guarding Your Growth <br /> with Clarity and Direction
           </h1>
-          <p className="mt-4 text-gray-600 text-lg">
+          <p className="mt-4 text-[#003B28] text-lg">
             We are more than a consulting firm, we are your strategic growth
             partner. <br /> We combine visionary thinking with actionable
             strategy and hands-on <br /> execution to help businesses thrive.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start">
-            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition">
+            <button className="bg-[#008236] text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition">
               Get In Touch
             </button>
           </div>

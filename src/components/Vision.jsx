@@ -1,59 +1,55 @@
 import React from "react";
-import { Eye, Target } from "lucide-react";
-import backgroundImage from "../assets/hero-img.png";
+import { FaEye, FaBullseye } from "react-icons/fa";
+import bgImage from "../assets/hero-img.png"; // adjust path
 
-function Vision() {
+const Vision = () => {
+  const visionMission = [
+    {
+      title: "Vision",
+      description: "To become a global business enabler",
+      icon: <FaEye size={40} className="text-white" />,
+    },
+    {
+      title: "Mission",
+      description:
+        "To deliver smart, scalable solutions that keep businesses thrivin",
+      icon: <FaBullseye size={40} className="text-white" />,
+    },
+  ];
+
   return (
     <section
-      className="relative  bg-center bg-no-repeat py-16"
-      style={{
-        backgroundImage: `url(${backgroundImage})`, // ✅ Use imported image here
-      }}
+      className="relative bg-cover bg-center bg-no-repeat py-20"
+      style={{ backgroundImage: `url(${bgImage})` }}
     >
-      {/* Green overlay */}
-      <div className="absolute inset-0 bg-green-800 bg-opacity-50"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-green-900/50"></div>
 
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <h2 className="text-4xl font-bold text-white text-center mb-12">
+      <div className="relative max-w-6xl mx-auto px-6 text-center text-white">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12">
           Our Vision & Mission
         </h2>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Vision */}
-          <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-            <div className="flex items-center mb-4">
-              <div className="bg-white bg-opacity-20 p-3 rounded-full mr-4">
-                <Eye className="text-black w-6 h-6" />
+        <div className="grid md:grid-cols-2 gap-8">
+          {visionMission.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white/20 backdrop-blur-md p-8 rounded-2xl shadow-lg text-left flex flex-col"
+            >
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white/30 mr-3">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold">{item.title}</h3>
               </div>
-              <h3 className="text-lg font-bold text-black">Vision</h3>
+              <p className="text-white/90">{item.description}</p>
             </div>
-            <p className="text-black text-base leading-relaxed">
-              To cultivate a future where farming thrives through innovation and
-              collaboration, empowering farmers for sustainable growth.
-            </p>
-          </div>
-
-          {/* Mission */}
-          <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-            <div className="flex items-center mb-4">
-              <div className="bg-white bg-opacity-20 p-3 rounded-full mr-4">
-                <Target className="text-black w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold text-black">Mission</h3>
-            </div>
-            <p className="text-black text-base leading-relaxed">
-              To be the backbone of Nigerian farmers by providing finance,
-              market access, and sustainable agricultural solutions that drive
-              productivity and profitability.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Vision;

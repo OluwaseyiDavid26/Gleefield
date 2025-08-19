@@ -7,15 +7,20 @@ const About = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 px-6">
         {/* LEFT SIDE: TEXT */}
         <div className="flex-1 text-white">
-          <h3 className="uppercase font-semibold text-sm tracking-widest mb-2">
+          {/* Small Title */}
+          <h2 className="uppercase text-3xl font-bold tracking-widest mb-4">
             About Us
-          </h3>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
+          </h2>
+
+          {/* Main Heading */}
+          <h2 className="text-xl md:text-2xl font-bold leading-relaxed mb-6">
             Gleefield Global Services Limited is a strategy-led consulting firm
             that provides end-to-end consulting and business management services
             to organizations navigating a rapidly changing world.
           </h2>
-          <p className="text-base leading-relaxed">
+
+          {/* Paragraph */}
+          <p className="text-base leading-7 font-normal">
             We are dedicated to helping businesses grow smarter, operate better,
             and lead with clarity. With a deep understanding of market shifts,
             organizational needs, and global business trends, we work alongside
