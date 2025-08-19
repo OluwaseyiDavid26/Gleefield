@@ -8,7 +8,7 @@ const About = () => {
         {/* LEFT SIDE: TEXT */}
         <div className="flex-1 text-white">
           <h3 className="uppercase font-semibold text-sm tracking-widest mb-2">
-            About
+            About Us
           </h3>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
             Gleefield Global Services Limited is a strategy-led consulting firm

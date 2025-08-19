@@ -26,11 +26,11 @@ function Vision() {
           <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
             <div className="flex items-center mb-4">
               <div className="bg-white bg-opacity-20 p-3 rounded-full mr-4">
-                <Eye className="text-white w-6 h-6" />
+                <Eye className="text-black w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white">Vision</h3>
+              <h3 className="text-lg font-bold text-black">Vision</h3>
             </div>
-            <p className="text-white text-base leading-relaxed">
+            <p className="text-black text-base leading-relaxed">
               To cultivate a future where farming thrives through innovation and
               collaboration, empowering farmers for sustainable growth.
             </p>
@@ -40,11 +40,11 @@ function Vision() {
           <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
             <div className="flex items-center mb-4">
               <div className="bg-white bg-opacity-20 p-3 rounded-full mr-4">
-                <Target className="text-white w-6 h-6" />
+                <Target className="text-black w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white">Mission</h3>
+              <h3 className="text-lg font-bold text-black">Mission</h3>
             </div>
-            <p className="text-white text-base leading-relaxed">
+            <p className="text-black text-base leading-relaxed">
               To be the backbone of Nigerian farmers by providing finance,
               market access, and sustainable agricultural solutions that drive
               productivity and profitability.

@@ -7,7 +7,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full fixed top-0 left-0 bg-white shadow-sm z-50">
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-18">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <img src={logo} alt="Logo" className="h-8 w-auto" />
@@ -40,7 +40,10 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="/contact" className="hover:text-green-500 transition">
+            <Link
+              to="/contact"
+              className="hover:text-green-500 transition bg-[#008A5E] border-2 rounded-2xl p-3 "
+            >
               Contact Us
             </Link>
           </li>
