@@ -89,7 +89,7 @@ const Footer = () => {
       </div>
 
       {/* COPYRIGHT */}
-      <div className="mt-10 border-t border-white/20 pt-4 text-center text-sm">
+      <div className="mt-10  pt-4 text-center text-sm">
         © Copyright Gleefield {new Date().getFullYear()}
       </div>
     </footer>

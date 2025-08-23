@@ -111,9 +111,9 @@ const Testimonial = () => {
           What Our Clients Say
         </motion.h2>
 
-        <p className="text-white/80 mb-12 max-w-2xl mx-auto">
+        {/* <p className="text-white/80 mb-12 max-w-2xl mx-auto">
           Hear from our happy customers who love the Serene experience.
-        </p>
+        </p> */}
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
