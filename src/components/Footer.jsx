@@ -9,12 +9,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
         {/* LOGO + TAGLINE + SOCIAL ICONS */}
         <div>
-          <img src={logo} alt="Gleefield Logo" className="h-12 mb-4" />
-          <p className="text-sm mb-6 max-w-xs">
+          <img src={logo} alt="Gleefield Logo" className="h-12 mb-6" />
+          <p className="text-sm mb-8 max-w-xs">
             We’re here to guide you — clearly, calmly, and with direction you
             can trust.
           </p>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 mt-4">
             <a
               href="https://instagram.com"
               target="_blank"

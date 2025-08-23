@@ -2,7 +2,7 @@ import React from "react";
 
 function Contact() {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-16" id="contact">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left Text Section */}
         <div>
@@ -75,7 +75,7 @@ function Contact() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-green-700 text-white font-semibold py-2 rounded-md hover:bg-green-800 transition"
+              className="w-full bg-[#008236] text-white font-semibold py-2 rounded-md hover:bg-green-800 transition"
             >
               Send Message
             </button>
