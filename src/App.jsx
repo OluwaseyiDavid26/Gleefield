@@ -10,6 +10,7 @@ import WhatSetsUsApart from "./components/WhatSetsUsApart";
 import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
 import ScrollToTop from "./components/ScrollToTop";
+// import ProjectManager from "./components/ProjectManager";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Vision />
               <WhatSetsUsApart />
               <Testimonial />
+              {/* <ProjectManager /> */}
               <Contact />
               <ScrollToTop />
               <Footer />
