@@ -90,7 +90,7 @@ function Hero() {
 
   return (
     <section
-      className="w-full min-h-screen flex items-center bg-gradient-to-t from-[#003B28] to-[#008A5E] py-20 md:py-65"
+      className="w-full min-h-screen flex items-center bg-gradient-to-t from-[#003B28] to-[#008A5E] py-30"
       id="home"
     >
       <div className="w-full flex flex-col md:flex-row items-center gap-10 px-6 md:px-12 lg:px-20">

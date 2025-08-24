@@ -10,7 +10,7 @@ import WhatSetsUsApart from "./components/WhatSetsUsApart";
 import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
 import ScrollToTop from "./components/ScrollToTop";
-// import ProjectManager from "./components/ProjectManager";
+import ProjectsSection from "./components/ProjectsSection";
 
 function App() {
   return (
@@ -25,10 +25,11 @@ function App() {
               <About />
               <CoreValues />
               <Services />
+              {/* <ProjectsSection /> */}
               <Vision />
               <WhatSetsUsApart />
               <Testimonial />
-              {/* <ProjectManager /> */}
+
               <Contact />
               <ScrollToTop />
               <Footer />
