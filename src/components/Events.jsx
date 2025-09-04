@@ -274,7 +274,8 @@ function Events() {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Mobile: stack | Desktop: side by side */}
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-start">
           {/* Left: Active Event Details */}
           {activeEvent && (
             <motion.div
@@ -282,6 +283,7 @@ function Events() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="text-center lg:text-left"
             >
               <h2 className="text-4xl lg:text-5xl font-extrabold mb-4 text-shadow-strong">
                 {activeEvent.title}
@@ -290,7 +292,7 @@ function Events() {
                 {activeEvent.description || ""}
               </p>
 
-              {/* Show button on desktop here */}
+              {/* Show button on desktop */}
               {activeEvent.gallery?.length > 0 && (
                 <button
                   onClick={() => openGallery(activeEvent.gallery)}
@@ -303,8 +305,8 @@ function Events() {
           )}
 
           {/* Right: Event Cards */}
-          <div className="relative">
-            <div className="flex space-x-4">
+          <div className="relative w-full">
+            <div className="flex flex-col lg:flex-row lg:space-x-4 space-y-6 lg:space-y-0">
               {visibleCards.map((event, index) => {
                 const main = event?.gallery?.[0];
                 const globalIndex = (activeIndex + index) % events.length;
@@ -312,7 +314,7 @@ function Events() {
                 const handleCardClick = () => {
                   setActiveIndex(globalIndex);
                   if (event.gallery?.length > 0) {
-                    openGallery(event.gallery); // 👈 open gallery on card click
+                    openGallery(event.gallery);
                   }
                 };
 
@@ -323,7 +325,7 @@ function Events() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     onClick={handleCardClick}
-                    className={`w-[220px] cursor-pointer rounded-xl overflow-hidden shadow-lg relative ${
+                    className={`w-full lg:w-[220px] cursor-pointer rounded-xl overflow-hidden shadow-lg relative ${
                       globalIndex === activeIndex ? "ring-4 ring-[#007a5]" : ""
                     }`}
                   >
@@ -378,7 +380,7 @@ function Events() {
 
             {/* Mobile-only Discover More btn */}
             {activeEvent?.gallery?.length > 0 && (
-              <div className="mt-16 block lg:hidden text-center">
+              <div className="mt-16 block lg:hidden text-center w-full">
                 <button
                   onClick={() => openGallery(activeEvent.gallery)}
                   className="border border-white px-8 py-3 rounded-full font-medium hover:bg-[#007a5] hover:border-[#007a5] transition"
