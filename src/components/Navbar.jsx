@@ -15,7 +15,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="w-full fixed top-0 left-0 bg-white shadow-sm z-50">
+    <nav className="w-full fixed top-0 left-0 p-2 bg-white shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-2">
@@ -23,17 +23,23 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-[#008A5E] font-medium">
+        <ul className="hidden md:flex text-xl space-x-8 text-[#008A5E] font-medium">
           {navLinks.map((link) => (
             <li key={link.name}>
               <a
+                href={link.href}
+                className="transition-colors duration-300 hover:text-[#006b4b]"
+              >
+                {link.name}
+              </a>
+              {/* <a
                 href={link.href}
                 className="relative transition-colors duration-300 hover:text-[#006b4b] 
                 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-[#008A5E] 
                 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300"
               >
                 {link.name}
-              </a>
+              </a> */}
             </li>
           ))}
           <li>
