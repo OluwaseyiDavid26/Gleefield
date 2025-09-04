@@ -192,7 +192,6 @@
 // }
 
 // export default Events;
-
 // src/components/Events.jsx
 import { useEffect, useState } from "react";
 import { Fancybox } from "@fancyapps/ui";
@@ -247,7 +246,7 @@ function Events() {
   return (
     <section
       id="events"
-      className="relative w-full min-h-screen flex items-center justify-center text-white overflow-hidden"
+      className="relative w-full min-h-screen flex items-start lg:items-center justify-center text-white overflow-hidden"
       style={{
         backgroundImage: bgImage ? `url(${bgImage})` : "",
         backgroundSize: "cover",
@@ -258,18 +257,18 @@ function Events() {
       <div className="absolute inset-0 bg-black/60"></div>
 
       {/* Content wrapper with margins */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-6 lg:px-12">
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-6 lg:px-12 pt-12 lg:pt-0">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="mb-12 lg:mb-20 flex flex-col items-center text-center -mt-20"
+          className="mb-8 lg:mb-20 flex flex-col items-center text-center lg:-mt-20"
         >
-          <h4 className="text-2xl lg:text-3xl mb-2 uppercase tracking-wide text-gray-300 text-shadow-strong">
+          <h4 className="text-xl sm:text-2xl lg:text-3xl mb-2 uppercase tracking-wide text-gray-300 drop-shadow-lg">
             Our Events
           </h4>
-          <h2 className="text-3xl lg:text-5xl font-bold mt-3 text-shadow-strong">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold mt-3 drop-shadow-xl">
             Experiences That Transform
           </h2>
         </motion.div>
@@ -285,10 +284,10 @@ function Events() {
               transition={{ duration: 0.8 }}
               className="text-center lg:text-left"
             >
-              <h2 className="text-4xl lg:text-5xl font-extrabold mb-4 text-shadow-strong">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 drop-shadow-xl">
                 {activeEvent.title}
               </h2>
-              <p className="text-lg text-gray-200 mb-8 text-shadow-strong">
+              <p className="text-base sm:text-lg text-gray-200 mb-8 drop-shadow-md">
                 {activeEvent.description || ""}
               </p>
 
@@ -298,7 +297,7 @@ function Events() {
                   onClick={() => openGallery(activeEvent.gallery)}
                   className="hidden lg:inline-block border border-white px-8 py-3 rounded-full font-medium hover:bg-[#007a5] hover:border-[#007a5] transition"
                 >
-                  Discover More
+                  Discover More Images
                 </button>
               )}
             </motion.div>
@@ -342,7 +341,7 @@ function Events() {
                     )}
                     {/* Title overlay */}
                     <div className="absolute top-0 left-0 right-0 bg-black/40 p-2">
-                      <h3 className="text-lg font-semibold text-shadow-strong">
+                      <h3 className="text-lg font-semibold drop-shadow-md">
                         {event.title}
                       </h3>
                     </div>
@@ -351,8 +350,8 @@ function Events() {
               })}
             </div>
 
-            {/* Arrows + Progress */}
-            <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 flex items-center space-x-6">
+            {/* Arrows + Progress (hidden on mobile) */}
+            <div className="hidden lg:flex absolute -bottom-14 left-1/2 -translate-x-1/2 items-center space-x-6">
               <button
                 onClick={prevSlide}
                 className="w-10 h-10 flex items-center justify-center border border-white rounded-full hover:bg-[#007a5] transition"
@@ -380,12 +379,12 @@ function Events() {
 
             {/* Mobile-only Discover More btn */}
             {activeEvent?.gallery?.length > 0 && (
-              <div className="mt-16 block lg:hidden text-center w-full">
+              <div className="mt-8 block lg:hidden text-center w-full">
                 <button
                   onClick={() => openGallery(activeEvent.gallery)}
                   className="border border-white px-8 py-3 rounded-full font-medium hover:bg-[#007a5] hover:border-[#007a5] transition"
                 >
-                  Discover More
+                  Discover More Images
                 </button>
               </div>
             )}
