@@ -93,7 +93,7 @@ function Hero() {
       className="w-full min-h-screen flex items-center bg-gradient-to-t from-[#003B28] to-[#008A5E] py-30"
       id="home"
     >
-      <div className="w-full flex flex-col md:flex-row items-center gap-10  ml-12 px-8 md:px-12 lg:px-20">
+      <div className="w-full flex flex-col md:flex-row items-center gap-10   px-8 md:px-12 lg:px-20">
         {/* Text Section */}
         <motion.div
           variants={textContainer}
@@ -103,7 +103,7 @@ function Hero() {
         >
           <motion.h1
             variants={textItem}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white first-letter:text-6xl first-letter:text-white first-letter:mr-1"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white"
           >
             Guarding Your Growth <br /> with Clarity and Direction
           </motion.h1>
