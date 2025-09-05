@@ -297,7 +297,7 @@ function Events() {
                   onClick={() => openGallery(activeEvent.gallery)}
                   className="hidden lg:inline-block border border-white px-8 py-3 rounded-full font-medium hover:bg-[#007a5] hover:border-[#007a5] transition"
                 >
-                  Discover More Images
+                  See More Images
                 </button>
               )}
             </motion.div>
@@ -384,7 +384,7 @@ function Events() {
                   onClick={() => openGallery(activeEvent.gallery)}
                   className="border border-white px-8 py-3 rounded-full font-medium hover:bg-[#007a5] hover:border-[#007a5] transition"
                 >
-                  Discover More Images
+                  See More Images
                 </button>
               </div>
             )}

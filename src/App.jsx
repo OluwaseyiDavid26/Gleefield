@@ -1,4 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { useState } from "react";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import CoreValues from "./components/CoreValues";
@@ -11,17 +18,19 @@ import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
 import ScrollToTop from "./components/ScrollToTop";
 import Events from "./components/Events";
-import UploadForm from "./components/UploadForm";
-// import AdminPage from "./pages/AdminPage";
+
 import AdminPage from "./pages/AdminPage";
+import AdminLogin from "./pages/AdminLogin";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
     <Router>
       <Navbar />
       <ScrollToTop />
       <Routes>
-        {/* Home route */}
+        {/* Public route */}
         <Route
           path="/"
           element={
@@ -35,19 +44,25 @@ function App() {
               <WhatSetsUsApart />
               <Testimonial />
               <Contact />
-              <Footer /> {/* Footer inside home route */}
+              <Footer />
             </>
           }
         />
 
-        {/* Admin route */}
+        {/* Admin routes */}
         <Route
           path="/admin"
           element={
-            <>
-              <AdminPage /> {/* Admin page contains its own footer */}
-            </>
+            isAuthenticated ? (
+              <AdminPage />
+            ) : (
+              <Navigate to="/admin/login" replace />
+            )
           }
+        />
+        <Route
+          path="/admin/login"
+          element={<AdminLogin onLogin={() => setIsAuthenticated(true)} />}
         />
       </Routes>
     </Router>
