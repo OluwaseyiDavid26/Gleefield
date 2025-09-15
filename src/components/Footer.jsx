@@ -16,7 +16,7 @@ const Footer = () => {
           </p>
           <div className="flex space-x-4 mt-4">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/gleefieldglobal?igsh=MTB2NDEzOTJ3ZXByZA=="
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-200"
@@ -24,23 +24,23 @@ const Footer = () => {
               <FaInstagram size={22} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/gleefield-global-services/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-200"
             >
               <FaLinkedin size={22} />
             </a>
-            <a
+            {/* <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-200"
             >
               <FaFacebook size={22} />
-            </a>
+            </a> */}
             <a
-              href="https://twitter.com"
+              href="https://x.com/gleefieldglobal"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-200"
@@ -68,7 +68,10 @@ const Footer = () => {
           <h3 className="font-bold mb-4">CONTACT US</h3>
           <div className="flex items-center space-x-3 mb-3">
             <FaMapMarkerAlt className="text-white w-5 h-5" />
-            <span className="text-sm">Abuja, Nigeria</span>
+            <span className="text-sm">
+              No. 1 Abdullahi Mohammed Close, Apo Legislative Quarters, Abuja,
+              Nigeria
+            </span>
           </div>
           <div className="flex items-center space-x-3 mb-3">
             <FaEnvelope className="text-white w-5 h-5" />

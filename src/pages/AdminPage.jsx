@@ -211,7 +211,7 @@ export default function AdminPage() {
 
           {/* Title Input */}
           <div className="mb-6">
-            <label className="block text-sm font-medium text-slate-300 mb-2">
+            <label className="block text-sm font-medium text-white-300 mb-2">
               Event Title
             </label>
             <input

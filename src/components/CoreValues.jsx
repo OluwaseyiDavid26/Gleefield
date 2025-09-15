@@ -1,28 +1,28 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import integrity from "../assets/integrity-2-removebg-preview.png";
-import excellence from "../assets/excellence-2.jpg";
-import handshake from "../assets/handshake-2.png";
+import integrity from "../assets/int.jpg";
+import excellence from "../assets/exc.jpg";
+import handshake from "../assets/h3.jpg";
 
 // Values Data
 const coreValues = [
   {
     title: "Integrity",
     description:
-      "We uphold the highest standards of honesty, transparency, and ethical conduct in everything we do.",
+      "Our operations are guided by unwavering integrity, marked by transparency and best ethical standards.",
     image: integrity,
   },
   {
     title: "Excellence",
     description:
-      "We strive for the highest quality in our work, delivering outstanding results that exceed expectations.",
+      "Excellence defines our approach, enabling us to provide solutions of enduring value and distinction.",
     image: excellence,
   },
   {
     title: "Partnership",
     description:
-      "We collaborate closely with our clients, building trust and long-term relationships for mutual success.",
+      "Through close collaboration, we establish trusted, long-term relationships that create sustainable value for our clients.",
     image: handshake,
   },
 ];
@@ -78,7 +78,7 @@ const CoreValues = () => {
               variants={cardVariant}
             >
               {/* Image */}
-              <div className="w-20 h-20 mx-auto mb-6 overflow-hidden rounded-full border-4 border-green-500">
+              <div className="w-20 h-20 mx-auto mb-6 overflow-hidden  border-green-200">
                 <img
                   src={value.image}
                   alt={value.title}

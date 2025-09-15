@@ -1,28 +1,25 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react"; // modern quote icon
-import client1 from "../assets/image-6.png";
-import client2 from "../assets/image-7.png";
-import client3 from "../assets/image-8.png";
 
 const testimonials = [
   {
-    name: "Aisha Bello",
+    name: "Innocent Joseph (Head, NipeX)",
     message:
-      "Gleefield transformed our business growth journey. Their Business Development & Growth Strategy helped us uncover new markets and set a clear path for sustainable expansion.",
-    image: client1,
+      "GLEEFIELD demonstrated outstanding professionalism and a commitment to excellence through our engagement. Their ability to deliver high-quality solutions as reinforced their reputation as a trusted partner in business consultancy and management",
+    // image: client2,
   },
   {
-    name: "David Eze",
+    name: "Abiodun",
     message:
-      "With Gleefield’s Business Management & Operations support, our processes became far more efficient. Their expert guidance made complex decisions easier and boosted our bottom line.",
-    image: client2,
+      "Thanks a lot, GLEEFIELD. We really enjoyed your training. We look forward to doing more business with your company soon. Regards.",
+    // image: client1,
   },
   {
-    name: "Adeola Martins",
+    name: "Bello",
     message:
-      "We engaged Gleefield for Professional Training & Capacity Building, and the improvement in our team’s skills and productivity has been remarkable. They truly invest in people.",
-    image: client3,
+      "Excellent Service delivery. The training organization was very professional and facilitator was practical in delivery.",
+    // image: client3,
   },
 ];
 
@@ -60,11 +57,11 @@ const Testimonial = () => {
 
               {/* User info */}
               <div className="flex items-center mb-4">
-                <img
+                {/* <img
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full object-cover mr-3 border-2 border-[#009B6E]"
-                />
+                /> */}
                 <div className="text-left">
                   <h3 className="font-semibold">{testimonial.name}</h3>
                   <div className="flex text-yellow-400 text-sm">★★★★★</div>
