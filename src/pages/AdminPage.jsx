@@ -17,13 +17,30 @@ export default function AdminPage() {
   const [images, setImages] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
-  const [editingEventId, setEditingEventId] = useState(null); // NEW
-  const [editedTitle, setEditedTitle] = useState(""); // NEW
+  const [editingEventId, setEditingEventId] = useState(null);
+  const [editedTitle, setEditedTitle] = useState("");
   const fileInputRef = useRef(null);
 
   useEffect(() => {
     fetchEvents();
   }, []);
+
+  // Add authentication check function
+  const checkAuth = async () => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    console.log("Session:", session);
+    console.log("User:", user);
+    console.log("Access token:", session?.access_token);
+    console.log("User ID:", user?.id);
+
+    return { session, user };
+  };
 
   async function fetchEvents() {
     const { data, error } = await supabase
@@ -59,6 +76,18 @@ export default function AdminPage() {
       return;
     }
 
+    // Check authentication before proceeding
+    console.log("=== CHECKING AUTHENTICATION ===");
+    const { session, user } = await checkAuth();
+
+    if (!session || !user) {
+      alert("You are not logged in! Please log in again.");
+      return;
+    }
+
+    console.log("Authentication OK - User ID:", user.id);
+    console.log("=== PROCEEDING WITH UPLOAD ===");
+
     setIsUploading(true);
 
     const uploadedUrls = [];
@@ -75,6 +104,7 @@ export default function AdminPage() {
 
     if (error) {
       console.error("Error creating event:", error);
+      console.log("Full error details:", JSON.stringify(error, null, 2));
     } else {
       setEvents([data, ...events]);
       setTitle("");
@@ -118,7 +148,7 @@ export default function AdminPage() {
     }
   };
 
-  // --- New functions for editing title ---
+  // New functions for editing title
   const startEditingTitle = (event) => {
     setEditingEventId(event.id);
     setEditedTitle(event.title);
@@ -142,7 +172,6 @@ export default function AdminPage() {
       console.error("Error updating title:", error);
     }
   };
-  // --------------------------------------
 
   const handleDragOver = (e) => {
     e.preventDefault();
