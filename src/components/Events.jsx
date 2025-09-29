@@ -266,7 +266,7 @@ function Events() {
           className="mb-8 lg:mb-20 flex flex-col items-center text-center lg:-mt-20"
         >
           <h4 className="text-xl sm:text-2xl lg:text-3xl mb-2 uppercase tracking-wide text-gray-300 drop-shadow-lg">
-            Our Events
+            Our Trainings and Programs
           </h4>
           <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold mt-3 drop-shadow-xl">
             Experiences That Transform
