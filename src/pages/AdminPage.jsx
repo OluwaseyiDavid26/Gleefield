@@ -21,26 +21,13 @@ export default function AdminPage() {
   const [editedTitle, setEditedTitle] = useState("");
   const fileInputRef = useRef(null);
 
+  // ✅ Hardcoded admin credentials
+  const ADMIN_EMAIL = "info@gleefield.com";
+  const ADMIN_PASSWORD = "Gleefield@123";
+
   useEffect(() => {
     fetchEvents();
   }, []);
-
-  // Add authentication check function
-  const checkAuth = async () => {
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    console.log("Session:", session);
-    console.log("User:", user);
-    console.log("Access token:", session?.access_token);
-    console.log("User ID:", user?.id);
-
-    return { session, user };
-  };
 
   async function fetchEvents() {
     const { data, error } = await supabase
@@ -53,7 +40,6 @@ export default function AdminPage() {
 
   async function uploadImage(file) {
     const filePath = `${Date.now()}_${file.name}`;
-
     const { error: uploadError } = await supabase.storage
       .from("events")
       .upload(filePath, file);
@@ -63,11 +49,8 @@ export default function AdminPage() {
       return null;
     }
 
-    const {
-      data: { publicUrl },
-    } = supabase.storage.from("events").getPublicUrl(filePath);
-
-    return publicUrl;
+    const { data } = supabase.storage.from("events").getPublicUrl(filePath);
+    return data.publicUrl;
   }
 
   const createEvent = async () => {
@@ -76,19 +59,23 @@ export default function AdminPage() {
       return;
     }
 
-    // Check authentication before proceeding
-    console.log("=== CHECKING AUTHENTICATION ===");
-    const { session, user } = await checkAuth();
+    setIsUploading(true);
 
-    if (!session || !user) {
-      alert("You are not logged in! Please log in again.");
+    // 🔒 Auto login as admin before creating event
+    const { data: loginData, error: loginError } =
+      await supabase.auth.signInWithPassword({
+        email: ADMIN_EMAIL,
+        password: ADMIN_PASSWORD,
+      });
+
+    if (loginError) {
+      console.error("Admin login failed:", loginError.message);
+      alert("Failed to authenticate admin.");
+      setIsUploading(false);
       return;
     }
 
-    console.log("Authentication OK - User ID:", user.id);
-    console.log("=== PROCEEDING WITH UPLOAD ===");
-
-    setIsUploading(true);
+    console.log("Admin authenticated:", loginData);
 
     const uploadedUrls = [];
     for (const img of images) {
@@ -148,7 +135,6 @@ export default function AdminPage() {
     }
   };
 
-  // New functions for editing title
   const startEditingTitle = (event) => {
     setEditingEventId(event.id);
     setEditedTitle(event.title);
