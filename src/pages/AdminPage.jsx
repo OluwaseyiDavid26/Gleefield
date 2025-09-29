@@ -457,7 +457,7 @@ import {
 } from "lucide-react";
 import { supabase } from "../supabaseClient";
 
-export default function AdminPage() {
+export default function AdminPage({ isAuthenticated }) {
   const [events, setEvents] = useState([]);
   const [title, setTitle] = useState("");
   const [images, setImages] = useState([]);
@@ -467,57 +467,23 @@ export default function AdminPage() {
   const [editedTitle, setEditedTitle] = useState("");
   const fileInputRef = useRef(null);
 
-  const ADMIN_EMAIL = "info@gleefield.com";
-  const ADMIN_PASSWORD = "Gleefield@123";
-
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   useEffect(() => {
-    const initAdminSession = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-
-      console.log("AdminPage session check:", session);
-
-      if (!session) {
-        console.log("No session — logging in admin...");
-        const loginSuccess = await adminLogin();
-        if (loginSuccess) fetchEvents();
-      } else {
-        console.log("Admin session found.");
-        setIsAuthenticated(true);
-        fetchEvents();
-      }
-    };
-
-    initAdminSession();
-  }, []);
-
-  const adminLogin = async () => {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: ADMIN_EMAIL,
-      password: ADMIN_PASSWORD,
-    });
-
-    if (error) {
-      console.error("Admin login failed:", error.message);
-      setIsAuthenticated(false);
-      return false;
+    if (isAuthenticated) {
+      fetchEvents();
     }
-
-    console.log("Admin login success:", data);
-    setIsAuthenticated(true);
-    return true;
-  };
+  }, [isAuthenticated]);
 
   async function fetchEvents() {
     const { data, error } = await supabase
       .from("events")
       .select("*")
       .order("created_at", { ascending: false });
-    if (error) console.error("Error fetching events:", error);
-    else setEvents(data || []);
+
+    if (error) {
+      console.error("Error fetching events:", error);
+    } else {
+      setEvents(data || []);
+    }
   }
 
   async function uploadImage(file) {
@@ -536,21 +502,17 @@ export default function AdminPage() {
   }
 
   const createEvent = async () => {
+    if (!isAuthenticated) {
+      alert("You must be logged in to create events.");
+      return;
+    }
+
     if (!title || images.length === 0) {
       alert("Title and images are required!");
       return;
     }
 
     setIsUploading(true);
-
-    if (!isAuthenticated) {
-      const loginSuccess = await adminLogin();
-      if (!loginSuccess) {
-        alert("Failed to authenticate admin.");
-        setIsUploading(false);
-        return;
-      }
-    }
 
     const uploadedUrls = [];
     for (const img of images) {

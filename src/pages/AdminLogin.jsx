@@ -89,7 +89,6 @@ export default function AdminLogin({ onLogin }) {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // ✅ Hardcoded admin credentials
   const ADMIN_EMAIL = "info@gleefield.com";
   const ADMIN_PASSWORD = "Gleefield@123";
 
@@ -97,8 +96,7 @@ export default function AdminLogin({ onLogin }) {
     e.preventDefault();
 
     if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-      // Successful login
-      if (onLogin) onLogin(true); // optional callback
+      if (onLogin) onLogin(true);
       navigate("/admin");
     } else {
       setError("Invalid email or password");
