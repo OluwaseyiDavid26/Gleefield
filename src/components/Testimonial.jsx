@@ -6,7 +6,7 @@ const testimonials = [
   {
     name: "Innocent Joseph (Head, NipeX)",
     message:
-      "GLEEFIELD demonstrated outstanding professionalism and a commitment to excellence through our engagement. Their ability to deliver high-quality solutions as reinforced their reputation as a trusted partner in business consultancy and management",
+      "GLEEFIELD demonstrated outstanding professionalism and a commitment to excellence through our engagement. Their ability to deliver high-quality solutions as reinforced their reputation has a trusted partner in business consultancy and management",
     // image: client2,
   },
   {
