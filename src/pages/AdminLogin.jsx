@@ -82,24 +82,40 @@
 // src/components/AdminLogin.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../supabaseClient";
 
 export default function AdminLogin({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const ADMIN_EMAIL = "info@gleefield.com";
-  const ADMIN_PASSWORD = "Gleefield@123";
-
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
+    setLoading(true);
 
-    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-      if (onLogin) onLogin(true);
-      navigate("/admin");
-    } else {
-      setError("Invalid email or password");
+    try {
+      const { data, error: signInError } =
+        await supabase.auth.signInWithPassword({
+          email: email,
+          password: password,
+        });
+
+      if (signInError) {
+        setError("Invalid email or password");
+        console.error("Login error:", signInError);
+      } else {
+        console.log("Login successful:", data);
+        if (onLogin) onLogin(true);
+        navigate("/admin");
+      }
+    } catch (err) {
+      setError("An error occurred during login");
+      console.error("Login error:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -113,26 +129,29 @@ export default function AdminLogin({ onLogin }) {
         <input
           type="email"
           placeholder="Email"
-          className="w-full p-2 mb-3 border rounded"
+          className="w-full p-2 mb-3 border rounded text-black"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
 
         <input
           type="password"
           placeholder="Password"
-          className="w-full p-2 mb-3 border rounded"
+          className="w-full p-2 mb-3 border rounded text-black"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
 
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
         <button
           type="submit"
-          className="w-full bg-[#008A5E] text-white p-2 rounded hover:bg-[#006F4A]"
+          disabled={loading}
+          className="w-full bg-[#008A5E] text-white p-2 rounded hover:bg-[#006F4A] disabled:bg-gray-600"
         >
-          Login
+          {loading ? "Logging in..." : "Login"}
         </button>
       </form>
     </div>
