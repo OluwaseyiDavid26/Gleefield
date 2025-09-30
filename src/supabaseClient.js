@@ -5,7 +5,7 @@ export const supabase = createClient(
   import.meta.env.VITE_SUPABASE_ANON_KEY,
   {
     auth: {
-      persistSession: true, // ✅ Persist session
+      persistSession: false, // ✅ Persist session
       detectSessionInUrl: true, // ✅ Useful for redirect logins
     },
   }
